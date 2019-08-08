@@ -95,4 +95,7 @@ typings/
 # MacOS
 .DS_Store
 
+# Sails.js
+.tmp
+
 # End of https://www.gitignore.io/api/node
