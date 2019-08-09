@@ -5,7 +5,7 @@ module.exports = {
 
     if (postId) {
       try {
-        let post = Post.find({ id: postId })
+        let post = Post.findOne({ id: postId })
         res.send(post)
       } catch (error) {
         res.serverError(error)
@@ -30,6 +30,19 @@ module.exports = {
       await Post.create({title, body})
       sails.log.debug("finished creating post")
       res.ok()
+    } catch (error) {
+      res.serverError(error)
+    }
+  },
+
+  update: async function(req, res) {
+    const id = req.param("postId")
+    const title = req.body.title
+    const body = req.body.body
+
+    try {
+      let post = await Post.update({ id }).set({ title, body })
+      res.send(post)
     } catch (error) {
       res.serverError(error)
     }

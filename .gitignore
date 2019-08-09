@@ -98,4 +98,7 @@ typings/
 # Sails.js
 .tmp
 
+# IntelliJ/WebStorm
+.idea/
+
 # End of https://www.gitignore.io/api/node
