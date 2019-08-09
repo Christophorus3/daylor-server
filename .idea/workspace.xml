@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e045b3e7-48b1-42f2-a725-e03ea6853752" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/models/Post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/controllers/PostsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/PostsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/blueprints.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/blueprints.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +73,7 @@
       <workItem from="1565261668012" duration="3185000" />
       <workItem from="1565266592091" duration="50000" />
       <workItem from="1565266665519" duration="35000" />
-      <workItem from="1565266733342" duration="3112000" />
+      <workItem from="1565266733342" duration="3311000" />
     </task>
     <servers />
   </component>
