@@ -1,47 +1,49 @@
-const post1 = {
-  id: 1,
-  title: "Post 1 Title",
-  body: "This is one interesting post. I have no idea where all of this leads to."
-}
-const post2 = {
-  id: 2,
-  title: "Post 2 Title",
-  body: "This is one interesting post. I have no idea where all of this leads to."
-}
-const post3 = {
-  id: 3,
-  title: "Post 2 Title",
-  body: "This is one interesting post. I have no idea where all of this leads to."
-}
-
-const posts = [post1, post2, post3]
-
 module.exports = {
 
-  posts: function (req, res) {
+  posts: async function(req, res) {
     const postId = req.param("postId")
 
     if (postId) {
-      let post = posts.filter( p => p.id == postId)
-
-      res.send(post)
+      try {
+        let post = Post.find({ id: postId })
+        res.send(post)
+      } catch (error) {
+        res.serverError(error)
+      }
     } else {
-      res.send(posts)
+      try {
+        let posts = await Post.find()
+        res.send(posts)
+      } catch (error) {
+        res.serverError(error)
+      }
     }
   },
 
-  create: function (req, res) {
-    const id = req.param("id")
-    const title = req.param("title")
-    const body = req.param("body")
+  create: async function(req, res) {
+    const title = req.body.title
+    const body = req.body.body
 
-    const newPost = {id, title, body}
+    sails.log.debug("Creating Post: " + title + " " + body)
 
-    posts.push(newPost)
+    try {
+      await Post.create({title, body})
+      sails.log.debug("finished creating post")
+      res.ok()
+    } catch (error) {
+      res.serverError(error)
+    }
+  },
 
-    sails.log.debug(title + " " + body)
+  delete: async function(req, res) {
+    const id = req.param("postId")
 
-    res.end()
+    try {
+      await Post.destroy({ id })
+      sails.log.debug("deleted post with id: " + id)
+      res.ok()
+    } catch (error) {
+      res.serverError(error)
+    }
   }
-
 }
