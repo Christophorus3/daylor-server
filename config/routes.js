@@ -21,11 +21,15 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
+  // API Routes
   'GET /posts': 'PostsController.posts',
   'GET /posts/:postId': 'PostsController.posts',
   'POST /post': 'PostsController.create',
   'PUT /post/:postId': 'PostsController.update',
-  'DELETE /post/:postId': 'PostsController.delete'
+  'DELETE /post/:postId': 'PostsController.delete',
+
+  // Page Routes
+  'GET /home': 'post/home',
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

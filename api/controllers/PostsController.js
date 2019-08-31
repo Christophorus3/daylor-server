@@ -27,9 +27,10 @@ module.exports = {
     sails.log.debug("Creating Post: " + title + " " + body)
 
     try {
-      await Post.create({title, body})
+      let post = await Post.create({title, body}).fetch()
       sails.log.debug("finished creating post")
-      res.ok()
+      //return res.redirect("/home")
+      return res.send(post)
     } catch (error) {
       res.serverError(error)
     }
@@ -54,7 +55,7 @@ module.exports = {
     try {
       await Post.destroy({ id })
       sails.log.debug("deleted post with id: " + id)
-      res.ok()
+      return res.ok()
     } catch (error) {
       res.serverError(error)
     }

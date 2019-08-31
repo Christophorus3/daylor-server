@@ -1,0 +1,28 @@
+<p>This is my Posts Page.</p>
+
+<div>
+    <form class="post-card" action="/post" method="post">
+        <input type="text" name="title" placeholder="Title"/><br/>
+        <textarea type="text" name="body" placeholder="Message"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+<% posts.forEach(p => { %>
+    <div class="post-card">
+        <h2><%= p.title%></h2>
+        <p><%= p.body%></p>
+        <button id="<%= p.id %>" onclick="handleDeletePost(event)">Delete</button>
+    </div>
+<% }) %>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    async function handleDeletePost(event) {
+      const id = event.target.id
+      const url = "/post/" + id
+
+      await axios.delete(url)
+      location.reload()
+    }
+</script>
